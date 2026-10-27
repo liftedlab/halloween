@@ -9,19 +9,25 @@
 <meta property="og:title" content="Assine aqui se tiver coragem.">
 <meta property="og:description" content="50% off no Lifted Lab de Halloween no Phase. 31.10, 22h.">
 <meta property="og:type" content="website">
-<!-- Para a prévia no WhatsApp/Instagram aparecer com imagem, troque pelo link completo depois de publicar:
-<meta property="og:image" content="https://SEU-USUARIO.github.io/NOME-DO-REPO/img/og.jpg"> -->
-<link rel="icon" type="image/png" href="img/favicon.png">
+<meta property="og:url" content="https://liftedlab.github.io/halloween/">
+<meta property="og:site_name" content="Lifted Lab">
+<meta property="og:image" content="https://liftedlab.github.io/halloween/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="Cubo verde do Lifted Lab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liftedlab.github.io/halloween/img/og.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preload" href="fonts/jsl-blackletter.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/american-typewriter.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/crayon-hand.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/corose.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="img/paper.jpg" as="image">
 <link rel="preload" href="img/seal.png" as="image">
 <style>
 @font-face { font-family: "JSL Blackletter"; src: url("fonts/jsl-blackletter.woff2") format("woff2"); font-display: block; }
 @font-face { font-family: "American Typewriter"; src: url("fonts/american-typewriter.woff2") format("woff2"); font-display: block; }
-@font-face { font-family: "Crayon Hand"; src: url("fonts/crayon-hand.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Corose"; src: url("fonts/corose.woff2") format("woff2"); font-display: block; }
 
 :root {
   --green: #9ad326;
@@ -32,7 +38,7 @@
   --hint: #979797;
   --f-title: "JSL Blackletter", serif;
   --f-type: "American Typewriter", "Courier New", monospace;
-  --f-hand: "Crayon Hand", "Comic Sans MS", cursive;
+  --f-hand: "Corose", "Comic Sans MS", cursive;
   /* largura do papel: segue a proporção das telas (papel = 77% da largura), limitada pela altura */
   --pw: min(77vw, 43svh, 430px);
   --ease-out: cubic-bezier(.16,1,.3,1);
@@ -302,8 +308,8 @@ body {
   font-family: var(--f-hand); letter-spacing: -.04em;
   font-size: 6.53cqw; line-height: 8.16cqw; color: var(--ink);
 }
-.xmark { left: 11.16cqw; top: 64.94cqw; color: var(--green-x); user-select: none; }
-.atmark { left: 10.64cqw; top: 88.59cqw; user-select: none; }
+.xmark { left: 11.16cqw; top: 64.24cqw; color: var(--green-x); user-select: none; }
+.atmark { left: 10.64cqw; top: 87.89cqw; user-select: none; }
 .field input {
   position: absolute; height: 8.16cqw;
   border: 0; outline: 0; background: transparent; border-radius: 0; padding: 0;
@@ -311,8 +317,8 @@ body {
   -webkit-appearance: none; appearance: none;
   font-size: max(16px, 6.53cqw); /* 16px evita o zoom automático do iPhone */
 }
-#nome { left: 17.43cqw; top: 64.94cqw; width: 69.6cqw; }
-#instagram { left: 15.1cqw; top: 88.59cqw; width: 71.9cqw; }
+#nome { left: 17.43cqw; top: 64.24cqw; width: 69.6cqw; }
+#instagram { left: 14.6cqw; top: 87.89cqw; width: 72.4cqw; }
 .label { font-size: 4.08cqw; line-height: 4.08cqw; letter-spacing: -.03em; color: var(--grey); white-space: nowrap; }
 .l1 { left: 10.9cqw; top: 76.74cqw; }
 .l2 { left: 10.77cqw; top: 100.38cqw; }
@@ -372,10 +378,10 @@ body {
 .view-done .rule.r3 { transform: scaleX(0); transform-origin: left; }
 .is-signed .view-done .rule.r3 { transform: scaleX(1); transition: transform .6s cubic-bezier(.5,0,.2,1) .1s; }
 .rule.r3 { left: 11.35cqw; top: 89.58cqw; }
-.xdone { left: 10.68cqw; top: 80.69cqw; color: var(--green-x); opacity: 0; }
+.xdone { left: 10.68cqw; top: 79.99cqw; color: var(--green-x); opacity: 0; }
 .is-signed .xdone { opacity: 1; transition: opacity .4s ease .5s; }
 .signed-name {
-  left: 17.32cqw; bottom: 53.37cqw; width: 70.2cqw;
+  left: 17.32cqw; bottom: 54.37cqw; width: 70.2cqw;
   font-size: 9.39cqw; line-height: 10.03cqw; overflow-wrap: anywhere;
   clip-path: inset(0 100% 0 0);
 }
@@ -509,6 +515,8 @@ html.is-signed #btn, html.is-signed #btn:hover, html.is-signed #btn:active { ani
    Enquanto estiver vazio, a página funciona em modo de teste:
    mostra a confirmação, mas não salva o nome em lugar nenhum.
    ========================================================= */
+// A lista fecha neste horário (horário de Brasília). A planilha também recusa depois disso.
+const CLOSE_AT = new Date("2026-10-31T21:00:00-03:00");
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2yuExxMR-igXzyrust6ZOxPQGB5PUhS3s31aAQrY_x_Cv2fb_rHQ3tyt44s7jQjI/exec";
 
 (() => {
@@ -640,16 +648,31 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2yuExxMR-igXzyrust
     if (!ig) { invalid($("#fInsta")); ok = false; }
     if (!ok) { (n.length < 2 ? nome : insta).focus(); return; }
 
+    if (Date.now() >= CLOSE_AT.getTime()) { $("#formError").textContent = "A lista fechou às 21h. Te vemos no Phase!"; return; }
+
     btn.disabled = true; btn.classList.add("loading"); btn.querySelector(".lbl").textContent = "assinando";
     const data = new URLSearchParams({ nome: n, instagram: "@" + ig, website: $("#website").value });
-    try {
-      if (SCRIPT_URL) await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: data });
-      else { console.info("[modo teste] nada foi salvo:", Object.fromEntries(data)); await new Promise((r) => setTimeout(r, 700)); }
-      success(n, ig);
-    } catch (err) {
+    const fail = (msg) => {
       btn.disabled = false; btn.classList.remove("loading"); btn.querySelector(".lbl").textContent = "assinar";
-      $("#formError").textContent = "A conexão falhou. Tenta de novo?";
+      $("#formError").textContent = msg;
+    };
+    if (!SCRIPT_URL) { // modo teste
+      console.info("[modo teste] nada foi salvo:", Object.fromEntries(data));
+      await new Promise((r) => setTimeout(r, 700));
+      return success(n, ig);
     }
+    // só confirma depois que a planilha responder que salvou
+    let res = null;
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 20000);
+      const r = await fetch(SCRIPT_URL, { method: "POST", body: data, signal: ctrl.signal });
+      clearTimeout(t);
+      res = await r.json();
+    } catch (err) { res = null; }
+    if (res && res.ok) success(n, ig);
+    else if (res && res.erro === "fechada") fail("A lista fechou às 21h. Te vemos no Phase!");
+    else fail("Seu nome não foi salvo. Confere a internet e tenta de novo.");
   });
 
   // logo: volta tudo pro bilhete fechado (bom pra testar e mostrar)

@@ -21,4 +21,4 @@ Os nomes caem na aba **Lista**, com data, nome, @ e uma caixinha "Chegou?" pra m
 ## 3. Testar
 Abra o link no celular, assine com um nome de teste e confira se apareceu na planilha. Depois é só apagar a linha.
 
-Se mudar o código do Apps Script depois, use **Implantar > Gerenciar implantações > editar (lápis) > Versão: nova versão**, senão o link continua rodando a versão antiga.
+Se mudar o código do Apps Script depois, use **Implantar > Gerenciar implantações > editar (lápis) > Versão: Nova versão > Implantar**, senão o link continua rodando a versão antiga.
